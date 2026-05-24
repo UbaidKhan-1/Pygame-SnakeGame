@@ -46,7 +46,7 @@ current_level = levels[level_index] #default level when program starts
 gridsize = max(len(current_level), len(current_level[0]))
 tilesize = GRIDLENGTH//gridsize
 level_surface = pg.Surface((len(current_level[0])*tilesize, len(current_level)*tilesize))
-
+#_______________________________
 
 buttons = [
 
@@ -295,6 +295,7 @@ while running:
 		if event.type == pg.QUIT:
 			running = False
 			break
+		# For mobile and touch screen
 		if event.type == pg.FINGERDOWN:
 			for button in buttons:
 				x, y = button[0],button[1]
@@ -302,6 +303,21 @@ while running:
 				if x+bw > mx > x and y+bh > my > y:
 					snake.allowing_movement = True
 					snake.turn(dir)
+		# For keyboard
+		if event.type == pg.KEYDOWN:
+			if event.key == pg.K_w:
+				snake.allowing_movement = True
+				snake.turn("up")
+			elif event.key == pg.K_s:
+				snake.allowing_movement = True
+				snake.turn("down")
+			elif event.key == pg.K_a:
+				snake.allowing_movement = True
+				snake.turn("left")
+			elif event.key == pg.K_d:
+				snake.allowing_movement = True
+				snake.turn("right")
+			
 	
 	screen.fill("white")
 	
