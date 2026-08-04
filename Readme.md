@@ -62,7 +62,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/snake-game.git
+git clone https://github.com/UbaidKhan-1/Pygame-SnakeGame.git
 cd snake-game
 
 Install the required dependency:
